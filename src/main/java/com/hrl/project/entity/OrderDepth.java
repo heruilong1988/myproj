@@ -1,61 +1,30 @@
 package com.hrl.project.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
 import java.util.Date;
 
-public class OrderDepth {
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public  class  OrderDepth {
 
     private Integer id;
     private Date time;
-    private String bidPrice;
-    private String bidAmount;
-    private String askPrice;
-    private String askAmount;
+    private BigDecimal bidPrice_100;
+    private BigDecimal bidAmount_100;
+    private BigDecimal askPrice_100;
+    private BigDecimal askAmount_100;
+    private String base;
+    private String target;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Date getTime() {
-        return time;
-    }
-
-    public void setTime(Date time) {
-        this.time = time;
-    }
-
-    public String getBidPrice() {
-        return bidPrice;
-    }
-
-    public void setBidPrice(String bidPrice) {
-        this.bidPrice = bidPrice;
-    }
-
-    public String getBidAmount() {
-        return bidAmount;
-    }
-
-    public void setBidAmount(String bidAmount) {
-        this.bidAmount = bidAmount;
-    }
-
-    public String getAskPrice() {
-        return askPrice;
-    }
-
-    public void setAskPrice(String askPrice) {
-        this.askPrice = askPrice;
-    }
-
-    public String getAskAmount() {
-        return askAmount;
-    }
-
-    public void setAskAmount(String askAmount) {
-        this.askAmount = askAmount;
-    }
+    private BigDecimal bidPrice_500;
+    private BigDecimal bidAmount_500;
+    private BigDecimal askPrice_500;
+    private BigDecimal askAmount_500;
 }

@@ -29,17 +29,19 @@ public class JDBCTest {
      * @return
      */
     public int addOrder(OrderDepth orderDepth) {
-        String sql = "insert into order_depth(id,time,bid_price,bid_amount,ask_price,ask_amount) values(null,?,?,?,?,?)";
+        String sql = "insert into order_depth(id,time,base,target, bid_price_100,bid_amount_100,ask_price_100,ask_amount_100," +
+                "bid_price_500,bid_amount_500,ask_price_500,ask_amount_500) " +
+                "values(null,?,?,?,?,?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int resRow = jdbcTemplate.update(new PreparedStatementCreator() {
             @Override
             public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
                 PreparedStatement ps = connection.prepareStatement(sql, new String[]{"id"});
-                ps.setDate(1, new java.sql.Date(orderDepth.getTime().getTime()));
-                ps.setString(2, orderDepth.getBidPrice());
-                ps.setString(3, orderDepth.getBidAmount());
-                ps.setString(4, orderDepth.getAskPrice());
-                ps.setString(5, orderDepth.getAskAmount());
+                /*ps.setDate(1, new java.sql.Date(orderDepth.getTime().getTime()));
+                ps.setBigDecimal(2, orderDepth.getBidAmount_100());
+                ps.setBigDecimal(3, orderDepth.getBidAmount());
+                ps.setBigDecimal(4, orderDepth.getAskPrice());
+                ps.setBigDecimal(5, orderDepth.getAskAmount());*/
 
                 return ps;
             }
