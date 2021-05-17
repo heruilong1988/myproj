@@ -1,12 +1,16 @@
 package com.hrl.project;
 
+import com.hrl.project.dao.OrderDepthDAO;
 import com.hrl.project.entity.OrderDepth;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
+@MapperScan("com.hrl.project.mapper")
 @SpringBootApplication
 public class Application {
 
@@ -22,14 +26,23 @@ public class Application {
 
 
         ApplicationContext applicationContext = SpringApplication.run(Application.class, args);
-        RecordOrderDepth recordOrderDepth = applicationContext.getBean(RecordOrderDepth.class);
-        recordOrderDepth.recordOrderDepth();
+       /* RecordOrderDepth recordOrderDepth = applicationContext.getBean(RecordOrderDepth.class);
+        recordOrderDepth.recordOrderDepth();*/
 
-        JDBCTest jdbcTest = applicationContext.getBean(JDBCTest.class);
+        //JDBCTest jdbcTest = applicationContext.getBean(JDBCTest.class);
+        OrderDepthDAO orderDepthDAO = applicationContext.getBean(OrderDepthDAO.class);
 
-       /* OrderDepth orderDepth = OrderDepth.builder().askAmount("1").askPrice("1")
-                .bidAmount("1").bidPrice("1").time(new Date()).current("current").build();
-*/
+
+        BigDecimal bigDecimal = new BigDecimal("1");
+        OrderDepth orderDepth = OrderDepth.builder().askAmount_100(bigDecimal).askPrice_100(bigDecimal)
+                .bidAmount_100(bigDecimal).bidPrice_100(bigDecimal).time(new Date()).base("btc").target("usdt")
+                .askAmount_500(bigDecimal).askPrice_500(bigDecimal).bidAmount_500(bigDecimal).bidPrice_500(bigDecimal)
+                .build();
+
+        orderDepthDAO.saveOrderDepth(orderDepth);
+
+
+
     }
 
 }

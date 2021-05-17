@@ -1,9 +1,16 @@
 
 spring:
   datasource:
-    url: "jdbc:mysql://localhost/binance"
-    username: "root"
-    password: "root"
-    driver-class-name:  "com.mysql.jdbc.Driver"
+    url: jdbc:mysql://localhost/binance
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
 
-
+#mybatis的相关配置
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:/com/hrl/project/mapper/*.xml
+  type-aliases-package: com.hrl.project.entity
+  #开启驼峰命名
+  configuration:
+    map-underscore-to-camel-case: true

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hrl.project.mapper.OrderDepthMapper">
+    <insert id="insertOrderDepth" statementType="PREPARED" useGeneratedKeys="true"
+        keyColumn="id" keyProperty="id">
+        insert into order_depth (time, bidPrice_100, bidAmount_100,askPrice_100,askAmount_100,
+        base, target, bidPrice_500, bidAmount_500, askPrice_500 askAmount_500) values
+        (#{time},#{bidPrice_100},#{bidAmount_100},#{askPrice_100},#{askAmount_100},#{base},#{target},
+        #{bidPrice_500},#{bidAmount_500},#{askPrice_500},#{askAmount_500});
+
+    </insert>
+</mapper>
