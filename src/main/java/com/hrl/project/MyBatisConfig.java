@@ -12,7 +12,7 @@ import java.io.InputStream;
 @Configuration
 public class MyBatisConfig {
 
-    @Bean
+    //@Bean
     public SqlSessionFactory sqlSessionFactory() throws IOException {
        /* String resource = "mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);

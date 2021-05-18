@@ -1,10 +1,16 @@
 CREATE TABLE `order_depth` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
-	`bid_price` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
-	`bid_amount` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
-	`ask_price` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
-	`ask_amount` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`bid_price_100` DECIMAL(10,0) NULL DEFAULT NULL,
+	`bid_amount_100` DECIMAL(10,0) NULL DEFAULT NULL,
+	`ask_price_100` DECIMAL(10,0) NULL DEFAULT NULL,
+	`ask_amount_100` DECIMAL(10,0) NULL DEFAULT NULL,
 	`time` DATE NULL DEFAULT NULL,
+	`base` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`target` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`bid_price_500` DECIMAL(10,0) NULL DEFAULT NULL,
+	`bid_amount_500` DECIMAL(10,0) NULL DEFAULT NULL,
+	`ask_amount_500` DECIMAL(10,0) NULL DEFAULT NULL,
+	`ask_price_500` DECIMAL(10,0) NULL DEFAULT NULL,
 	PRIMARY KEY (`id`) USING BTREE
 )
 COLLATE='utf8_general_ci'

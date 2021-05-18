@@ -5,8 +5,8 @@
 <mapper namespace="com.hrl.project.mapper.OrderDepthMapper">
     <insert id="insertOrderDepth" statementType="PREPARED" useGeneratedKeys="true"
         keyColumn="id" keyProperty="id">
-        insert into order_depth (time, bidPrice_100, bidAmount_100,askPrice_100,askAmount_100,
-        base, target, bidPrice_500, bidAmount_500, askPrice_500 askAmount_500) values
+        insert into order_depth (time, bid_price_100, bid_amount_100,ask_price_100,ask_amount_100,
+        base, target, bid_price_500, bid_amount_500, ask_price_500,ask_amount_500) values
         (#{time},#{bidPrice_100},#{bidAmount_100},#{askPrice_100},#{askAmount_100},#{base},#{target},
         #{bidPrice_500},#{bidAmount_500},#{askPrice_500},#{askAmount_500});
 
